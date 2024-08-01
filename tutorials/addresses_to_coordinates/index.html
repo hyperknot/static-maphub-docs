@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Converting addresses to lat-lon coordinates - MapHub Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item affix "><li class="part-title">Guide</li><li class="chapter-item "><a href="../../map_provider_keys/index.html">Map provider keys</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../map_provider_keys/mapbox/mapbox.html">Mapbox</a></li><li class="chapter-item "><a href="../../map_provider_keys/here/here.html">HERE Maps</a></li><li class="chapter-item "><a href="../../map_provider_keys/esri/esri.html">ESRI</a></li><li class="chapter-item "><a href="../../map_provider_keys/thunderforest/thunderforest.html">Thunderforest</a></li></ol></li><li class="chapter-item "><a href="../../import_export/index.html">Import and Export</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../import_export/xlsx_csv_import/index.html">XLSX / CSV import</a></li></ol></li><li class="chapter-item "><a href="../../api/index.html">API</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../api/index.html">Introduction, API key</a></li><li class="chapter-item "><a href="../../api/map_list.html">List maps</a></li><li class="chapter-item "><a href="../../api/map_get.html">Get map</a></li><li class="chapter-item "><a href="../../api/map_upload.html">Upload map</a></li><li class="chapter-item "><a href="../../api/map_update.html">Update map</a></li><li class="chapter-item "><a href="../../api/map_append.html">Append map</a></li><li class="chapter-item "><a href="../../api/map_refresh_image.html">Refresh map image</a></li><li class="chapter-item "><a href="../../api/image_upload.html">Upload image</a></li><li class="chapter-item "><a href="../../api/marker_upload.html">Upload marker</a></li></ol></li><li class="chapter-item "><li class="part-title">Tutorials</li><li class="chapter-item expanded "><a href="../../tutorials/addresses_to_coordinates/index.html" class="active">Converting addresses to lat-lon coordinates</a></li><li class="chapter-item "><a href="../../tutorials/api_map_from_table/1_introduction.html">API: Map from a table</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../tutorials/api_map_from_table/1_introduction.html">Introduction</a></li><li class="chapter-item "><a href="../../tutorials/api_map_from_table/2_empty_map.html">Create a new map</a></li><li class="chapter-item "><a href="../../tutorials/api_map_from_table/3_images.html">Upload images and markers</a></li><li class="chapter-item "><a href="../../tutorials/api_map_from_table/4_geojson.html">MapHub GeoJSON</a></li><li class="chapter-item "><a href="../../tutorials/api_map_from_table/5_update.html">Update map</a></li><li class="chapter-item "><a href="../../tutorials/api_map_from_table/6_refresh_image.html">Refresh image</a></li></ol></li><li class="chapter-item "><a href="../../tutorials/first_map/tutorial.html">Creating your first map</a></li><li class="chapter-item "><a href="../../tutorials/wix_embed/index.html">Embed on Wix.com</a></li><li class="chapter-item "><a href="../../tutorials/drawing_tools/tutorial.html">Drawing tools</a></li><li class="chapter-item "><a href="../../tutorials/geocode_google_earth/index.html">Geocoding using Google Earth</a></li><li class="chapter-item affix "><li class="part-title">Old</li><li class="chapter-item "><a href="../../import_export/csv_import/index.html">CSV import</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MapHub Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="converting-street-addresses-to-lat-lon-coordinates-using-google-sheets"><a class="header" href="#converting-street-addresses-to-lat-lon-coordinates-using-google-sheets">Converting street addresses to lat-lon coordinates using Google Sheets</a></h1>
+<p>Frequently, you would like to import an Excel CSV or XLSX file onto a <a href="https://maphub.net/">MapHub</a> map but you don't have lat-lon coordinates. The following tutorial shows you how to convert a table of street addresses into coordinates.</p>
+<p><em>Note: If for some reason you cannot use Google Docs, there is an alternative (more complicated) tutorial using Google Earth: <a href="../geocode_google_earth/index.html">link</a></em></p>
+<h2 id="sample-data"><a class="header" href="#sample-data">Sample data</a></h2>
+<p>Our sample data is the following table, containing museum names, descriptions, addresses and country.
+<img src="assets/table.png" alt="table" /></p>
+<p>You can download this file here: <a href="assets/museums.csv">museums.csv</a></p>
+<h2 id="using-google-sheets"><a class="header" href="#using-google-sheets">Using Google Sheets</a></h2>
+<p>The simplest way to geocode a table is to upload it to Google Docs / Sheets and use the addon:
+<a href="https://workspace.google.com/marketplace/app/geocode_by_awesome_table/904124517349">Geocode by Awesome Table</a></p>
+<ol>
+<li>Install the addon: <a href="https://workspace.google.com/marketplace/app/geocode_by_awesome_table/904124517349">Geocode by Awesome Table</a></li>
+<li>Reload your table and click Extensions / Geocode by Awesome Table / Start Geocoding</li>
+</ol>
+<img src="assets/menu.png" height="300"/>
+<ol start="3">
+<li>Click X and select your address column, if if's not automatically detected.</li>
+</ol>
+<img src="assets/extension-click.png" height="600"/>
+<ol start="4">
+<li>Finally click the blue <strong>Geocode!</strong> button at the end. Don't click &quot;Customize Tooltip&quot; or &quot;Open Map&quot;, we only need the lat-lon coordinates from this extension.</li>
+</ol>
+<img src="assets/button.png" height="400"/>
+<ol start="5">
+<li>After this, you can export your table in Excel XLSX format, ready to be imported to MapHub.</li>
+</ol>
+<img src="assets/export.png" height="400"/>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../api/marker_upload.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../tutorials/api_map_from_table/1_introduction.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../api/marker_upload.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../tutorials/api_map_from_table/1_introduction.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

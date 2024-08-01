@@ -1,0 +1,1716 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>MapHub Documentation</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Introduction</a></li><li class="chapter-item affix "><li class="part-title">Guide</li><li class="chapter-item "><a href="map_provider_keys/index.html">Map provider keys</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="map_provider_keys/mapbox/mapbox.html">Mapbox</a></li><li class="chapter-item "><a href="map_provider_keys/here/here.html">HERE Maps</a></li><li class="chapter-item "><a href="map_provider_keys/esri/esri.html">ESRI</a></li><li class="chapter-item "><a href="map_provider_keys/thunderforest/thunderforest.html">Thunderforest</a></li></ol></li><li class="chapter-item "><a href="import_export/index.html">Import and Export</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="import_export/xlsx_csv_import/index.html">XLSX / CSV import</a></li></ol></li><li class="chapter-item "><a href="api/index.html">API</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="api/index.html">Introduction, API key</a></li><li class="chapter-item "><a href="api/map_list.html">List maps</a></li><li class="chapter-item "><a href="api/map_get.html">Get map</a></li><li class="chapter-item "><a href="api/map_upload.html">Upload map</a></li><li class="chapter-item "><a href="api/map_update.html">Update map</a></li><li class="chapter-item "><a href="api/map_append.html">Append map</a></li><li class="chapter-item "><a href="api/map_refresh_image.html">Refresh map image</a></li><li class="chapter-item "><a href="api/image_upload.html">Upload image</a></li><li class="chapter-item "><a href="api/marker_upload.html">Upload marker</a></li></ol></li><li class="chapter-item "><li class="part-title">Tutorials</li><li class="chapter-item "><a href="tutorials/addresses_to_coordinates/index.html">Converting addresses to lat-lon coordinates</a></li><li class="chapter-item "><a href="tutorials/api_map_from_table/1_introduction.html">API: Map from a table</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="tutorials/api_map_from_table/1_introduction.html">Introduction</a></li><li class="chapter-item "><a href="tutorials/api_map_from_table/2_empty_map.html">Create a new map</a></li><li class="chapter-item "><a href="tutorials/api_map_from_table/3_images.html">Upload images and markers</a></li><li class="chapter-item "><a href="tutorials/api_map_from_table/4_geojson.html">MapHub GeoJSON</a></li><li class="chapter-item "><a href="tutorials/api_map_from_table/5_update.html">Update map</a></li><li class="chapter-item "><a href="tutorials/api_map_from_table/6_refresh_image.html">Refresh image</a></li></ol></li><li class="chapter-item "><a href="tutorials/first_map/tutorial.html">Creating your first map</a></li><li class="chapter-item "><a href="tutorials/wix_embed/index.html">Embed on Wix.com</a></li><li class="chapter-item "><a href="tutorials/drawing_tools/tutorial.html">Drawing tools</a></li><li class="chapter-item "><a href="tutorials/geocode_google_earth/index.html">Geocoding using Google Earth</a></li><li class="chapter-item affix "><li class="part-title">Old</li><li class="chapter-item "><a href="import_export/csv_import/index.html">CSV import</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MapHub Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="maphub-documentation"><a class="header" href="#maphub-documentation">MapHub Documentation</a></h1>
+<p>Documentation for <a href="https://maphub.net/">MapHub.net</a></p>
+<p>Choose a topic from the left side menu (☰).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="map-provider-keys"><a class="header" href="#map-provider-keys">Map provider keys</a></h1>
+<p>MapHub provides a wide range of basemaps, some of which are from commercial providers (Mapbox, ESRI, HERE, etc.).</p>
+<p>If your map uses a commercial basemap and receives too much traffic, we ask you to sign up for the provider's free plan and add a key here.</p>
+<p>Without a provider key, maps with heavy usage will be limited to MapHub Classic for 24 hours.</p>
+<h2 id="how-to-add-map-provider-keys"><a class="header" href="#how-to-add-map-provider-keys">How to add map provider keys</a></h2>
+<h4 id="mapbox"><a class="header" href="#mapbox"><a href="map_provider_keys/mapbox/mapbox.html">Mapbox</a></a></h4>
+<h4 id="here-maps"><a class="header" href="#here-maps"><a href="map_provider_keys/here/here.html">HERE Maps</a></a></h4>
+<h4 id="esri"><a class="header" href="#esri"><a href="map_provider_keys/esri/esri.html">ESRI</a></a></h4>
+<h4 id="thunderforest"><a class="header" href="#thunderforest"><a href="map_provider_keys/thunderforest/thunderforest.html">Thunderforest</a></a></h4>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mapbox-provider-key"><a class="header" href="#mapbox-provider-key">Mapbox provider key</a></h1>
+<h4 id="how-to-add-a-mapbox-provider-key-to-maphub"><a class="header" href="#how-to-add-a-mapbox-provider-key-to-maphub">How to add a Mapbox provider key to MapHub</a></h4>
+<ol>
+<li>
+<p>Sign up to for free account on Mapbox: <a href="https://account.mapbox.com/auth/signup/">link</a></p>
+</li>
+<li>
+<p>Navigate to the <a href="https://account.mapbox.com/access-tokens/">Tokens</a> section on mapbox.com: <a href="https://account.mapbox.com/access-tokens/">link</a>
+<img src="map_provider_keys/mapbox/assets/mapbox-1.png" alt="mapbox-1" /></p>
+</li>
+<li>
+<p>Under access tokens, look for <strong>Default public token</strong>, and click the blue icon to copy the token to the clipboard. You can also select the text and copy it manually.
+<strong>Important</strong>: make sure the token you are selecting starts with <code>pk.</code>
+<img src="map_provider_keys/mapbox/assets/mapbox-2.png" alt="mapbox-2" /></p>
+</li>
+<li>
+<p>Go to your MapHub account's <strong>Map provider keys</strong> page: <a href="https://maphub.net/settings/map_provider_keys">link</a></p>
+</li>
+<li>
+<p>Paste the copied text to <strong>Mapbox Public Token</strong> field and click <strong>Save</strong>.
+<img src="map_provider_keys/mapbox/../assets/map_provider_keys.png" alt="maphub-basemaps" /></p>
+</li>
+<li>
+<p>Congratulations, you can now use Mapbox basemaps on MapHub.</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="here-maps-provider-key"><a class="header" href="#here-maps-provider-key">HERE Maps provider key</a></h1>
+<h4 id="how-to-add-here-maps-provider-key-to-maphub"><a class="header" href="#how-to-add-here-maps-provider-key-to-maphub">How to add HERE Maps provider key to MapHub</a></h4>
+<ol>
+<li>Sign up to for Freemium account on HERE Developers: <a href="https://developer.here.com/">link</a>
+<img src="map_provider_keys/here/assets/here-1.jpg" alt="" /></li>
+<li>(Optional) If you don't get automatically redirected to your Projects page, navigate to your Projects page and select your Freemium project: <a href="https://developer.here.com/projects">link</a></li>
+<li>In the <strong>REST</strong> section, click &quot;Generate App&quot;.
+<img src="map_provider_keys/here/assets/here-2.png" alt="" /></li>
+<li>Click &quot;Create API key&quot;
+<img src="map_provider_keys/here/assets/here-3.png" alt="" /></li>
+<li>Copy the generated API key
+<img src="map_provider_keys/here/assets/here-4.png" alt="" /></li>
+<li>Go to your MapHub account's <strong>Map provider keys</strong> page: <a href="https://maphub.net/settings/map_provider_keys">link</a></li>
+<li>Paste the copied text to <strong>HERE API key</strong> and click <strong>Save</strong>.
+<img src="map_provider_keys/here/../assets/map_provider_keys.png" alt="maphub-basemaps" /></li>
+<li>Congratulations, you can now use HERE basemaps on MapHub.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="esri-provider-key"><a class="header" href="#esri-provider-key">ESRI provider key</a></h1>
+<h4 id="how-to-add-esri-provider-key-to-maphub"><a class="header" href="#how-to-add-esri-provider-key-to-maphub">How to add ESRI provider key to MapHub</a></h4>
+<ol>
+<li>Sign up for an ArcGIS Location Platform account: <a href="https://location.arcgis.com//">link</a></li>
+<li>On the &quot;Confirm account details&quot; enter anything for username, portal URL and portal display name - it doesn't matter.</li>
+<li>Verify your email and sign in.</li>
+<li>On the &quot;Finish setting up your account&quot; click &quot;Skip for now&quot; in the lower left corner.
+<img src="map_provider_keys/esri/assets/skip.png" alt="" /></li>
+<li>Click &quot;Create a developer credential&quot;
+<img src="map_provider_keys/esri/assets/Pasted%20image%2020240725020150.png" alt="" /></li>
+<li>Click &quot;New item&quot;
+<img src="map_provider_keys/esri/assets/new_item.png" alt="" /></li>
+<li>Click &quot;Developer credentials&quot;
+<img src="map_provider_keys/esri/assets/developer_credenials.png" alt="" /></li>
+<li>Click &quot;API key credentials&quot; and &quot;Next&quot;
+<img src="map_provider_keys/esri/assets/api_key_next.png" alt="" /></li>
+<li>Set Expiration date one year in the future
+<img src="map_provider_keys/esri/assets/expiration.png" alt="" /></li>
+<li>Enable Basemaps
+<img src="map_provider_keys/esri/assets/basemaps.png" alt="" /></li>
+<li>Skip the &quot;Grant item access&quot; screen.</li>
+<li>Write any title for &quot;Title&quot; on the next screen, like &quot;basemaps&quot;
+<img src="map_provider_keys/esri/assets/title.png" alt="" /></li>
+<li>Generate key first choice
+<img src="map_provider_keys/esri/assets/generate.png" alt="" /></li>
+<li>Copy the key, and temporarily paste it somewhere, like in a text file or note. This dialog is only displayed once.
+<img src="map_provider_keys/esri/assets/copy.png" alt="" /></li>
+<li>Go to your MapHub account's <strong>Map provider keys</strong> page: <a href="https://maphub.net/settings/map_provider_keys">link</a></li>
+<li>Paste the copied text to <strong>ESRI API key</strong> and click <strong>Save</strong>.
+<img src="map_provider_keys/esri/../assets/map_provider_keys.png" alt="maphub-basemaps" /></li>
+<li>Congratulations, you can now use ESRI basemaps on MapHub.</li>
+</ol>
+<hr />
+<h3 id="after-one-year"><a class="header" href="#after-one-year">After one year</a></h3>
+<p>In one year, when the API key expires, you can renew it by clicking on this button:</p>
+<p><img src="map_provider_keys/esri/assets/renew.png" alt="" /></p>
+<p>After, you can select today's date next year:</p>
+<p><img src="map_provider_keys/esri/assets/today.png" alt="" /></p>
+<p>Finally, this key needs to be entered on MapHub's <strong>Map provider keys</strong> page: <a href="https://maphub.net/settings/map_provider_keys">link</a>, like before.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="thunderforest-provider-key"><a class="header" href="#thunderforest-provider-key">Thunderforest provider key</a></h1>
+<h4 id="how-to-add-a-thunderforest-provider-key-to-maphub"><a class="header" href="#how-to-add-a-thunderforest-provider-key-to-maphub">How to add a Thunderforest provider key to MapHub</a></h4>
+<ol>
+<li>
+<p>Sign up to a free <strong>Hobby Project</strong> account on Thunderforest Maps: <a href="https://www.thunderforest.com/pricing/">link</a></p>
+<p><img src="map_provider_keys/thunderforest/assets/thunderforest-1.png" alt="thunderforest-1" /></p>
+</li>
+<li>
+<p>Confirm your account via the verification email.</p>
+</li>
+<li>
+<p>Log in with your registered credentials.</p>
+</li>
+<li>
+<p>Copy the <strong>API Key</strong> from the dashboard.
+<img src="map_provider_keys/thunderforest/assets/thunderforest-2.png" alt="thunderforest-2" /></p>
+</li>
+<li>
+<p>Go to your MapHub account's <strong>Map provider keys</strong> page: <a href="https://maphub.net/settings/map_provider_keys">link</a></p>
+</li>
+<li>
+<p>Paste the copied text to <strong>Thunderforest API key</strong> field and click <strong>Save</strong>.
+<img src="map_provider_keys/thunderforest/../assets/map_provider_keys.png" alt="maphub-basemaps" /></p>
+</li>
+<li>
+<p>Congratulations, you can now use Thunderforest basemaps on MapHub.</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="import-and-export"><a class="header" href="#import-and-export">Import and Export</a></h1>
+<h2 id="import"><a class="header" href="#import">Import</a></h2>
+<h4 id="xlsx--csv-import"><a class="header" href="#xlsx--csv-import"><a href="import_export/xlsx_csv_import/index.html">XLSX / CSV import</a></a></h4>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="xlsx--csv-import-1"><a class="header" href="#xlsx--csv-import-1">XLSX / CSV import</a></h1>
+<p><a href="https://maphub.net/">MapHub</a> supports importing data from CSV or XLSX files. We recommend using the <strong>XLSX</strong> format.</p>
+<p>When uploading a table file, MapHub tries to guess the right file format. The only requirements is to have the following 2 columns present:</p>
+<ul>
+<li><strong>lat</strong> or <strong>latitude</strong>, as a number. For example New York is <code>40.71</code></li>
+<li><strong>lon</strong>, <strong>long</strong>, <strong>lng</strong> or <strong>longitude</strong>, as a number. For example New York is <code>-74.00</code></li>
+</ul>
+<p>If your data does not have these columns, follow the tutorial which explains how to convert street addresses to lat-lon coordinate pairs:</p>
+<p><a href="import_export/xlsx_csv_import//tutorials/addresses_to_coordinates/index.html">Converting addresses to lat-lon coordinates</a></p>
+<h4 id="other-columns"><a class="header" href="#other-columns">Other columns</a></h4>
+<p>(all of these are optional)</p>
+<ul>
+<li>
+<p><strong>title</strong> or <strong>name</strong> - the title of the item</p>
+</li>
+<li>
+<p><strong>description</strong> or <strong>desc</strong> - the description of the item, Markdown supported</p>
+</li>
+<li>
+<p><strong>group</strong> - the name of the item's group</p>
+</li>
+<li>
+<p><strong>url</strong> - a link URL</p>
+</li>
+<li>
+<p><strong>color</strong> - hex code for the item's color, for example <code>#CC1B15</code></p>
+</li>
+<li>
+<p><strong>visible</strong> - true/false - if the item is visible (true) or hidden (false). Also accepts 1/0.</p>
+</li>
+<li>
+<p><strong>media_url</strong> - a media URL, for example a YouTube video.</p>
+</li>
+<li>
+<p><strong>icon</strong> - a MapHub icon id</p>
+</li>
+<li>
+<p><strong>maphub_image_url</strong> - allows you to set an image for an item. You have to previously upload that image onto a map and export that map as a CSV or XLSX file to get these values.</p>
+</li>
+</ul>
+<h4 id="sample-data"><a class="header" href="#sample-data">Sample data</a></h4>
+<p>On the following map, you can click Download / Excel XLSX or CSV to get a sample file:</p>
+<p><strong><a href="https://maphub.net/hyperknot/xlsx-csv-sample">XLSX / CSV sample</a></strong></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="maphub-api"><a class="header" href="#maphub-api">MapHub API</a></h1>
+<p>The HTTP API is inspired by the <a href="https://www.dropbox.com/developers/documentation/http/documentation">Dropbox API v2</a>.</p>
+<ol>
+<li>
+<p>MapHub API uses HTTP POST requests with JSON arguments and JSON responses.</p>
+</li>
+<li>
+<p>Request authentication is via API keys using the <code>Authorization: Token &lt;api_key&gt;</code> request header.</p>
+</li>
+<li>
+<p>You can create API keys from the Settings page:</p>
+<img src="api/assets/settings.png" width="339">
+</li>
+<li>
+<p>To use the API, you need to verify your email address.</p>
+</li>
+<li>
+<p>Errors are returned in the <code>error</code> JSON field, status code is always 200.</p>
+<p>A successful response has no <code>error</code> field.</p>
+</li>
+</ol>
+<h3 id="request-and-response-formats"><a class="header" href="#request-and-response-formats">Request and response formats</a></h3>
+<p>Endpoints accept arguments as JSON in the request body and return results as JSON in the response body.</p>
+<p>The <em>Upload</em> and <em>Append</em> endpoints accept file content in the request body, so their arguments are instead passed as JSON in the <code>MapHub-API-Arg</code> request header.</p>
+<h2 id="endpoints"><a class="header" href="#endpoints">Endpoints</a></h2>
+<p>You can see the currently implemented endpoints in the left side menu.</p>
+<p>If you'd like to see more API endpoints or need some added features, please <a href="https://maphub.net/contact/support">contact us</a>.</p>
+<h2 id="maphub-enterprise-api-usage"><a class="header" href="#maphub-enterprise-api-usage">MapHub Enterprise API usage</a></h2>
+<p>The API for Enterprise users is the same as with the public website, except the <code>maphub.net</code> URL is changed to your server's URL. For example, instead of</p>
+<p><code>https://maphub.net/api/1/map/list</code></p>
+<p>please use</p>
+<p><code>https://companyname.maphub.net/api/1/map/list</code></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="maphub-api-1"><a class="header" href="#maphub-api-1">MapHub API</a></h1>
+<p>The HTTP API is inspired by the <a href="https://www.dropbox.com/developers/documentation/http/documentation">Dropbox API v2</a>.</p>
+<ol>
+<li>
+<p>MapHub API uses HTTP POST requests with JSON arguments and JSON responses.</p>
+</li>
+<li>
+<p>Request authentication is via API keys using the <code>Authorization: Token &lt;api_key&gt;</code> request header.</p>
+</li>
+<li>
+<p>You can create API keys from the Settings page:</p>
+<img src="api/assets/settings.png" width="339">
+</li>
+<li>
+<p>To use the API, you need to verify your email address.</p>
+</li>
+<li>
+<p>Errors are returned in the <code>error</code> JSON field, status code is always 200.</p>
+<p>A successful response has no <code>error</code> field.</p>
+</li>
+</ol>
+<h3 id="request-and-response-formats-1"><a class="header" href="#request-and-response-formats-1">Request and response formats</a></h3>
+<p>Endpoints accept arguments as JSON in the request body and return results as JSON in the response body.</p>
+<p>The <em>Upload</em> and <em>Append</em> endpoints accept file content in the request body, so their arguments are instead passed as JSON in the <code>MapHub-API-Arg</code> request header.</p>
+<h2 id="endpoints-1"><a class="header" href="#endpoints-1">Endpoints</a></h2>
+<p>You can see the currently implemented endpoints in the left side menu.</p>
+<p>If you'd like to see more API endpoints or need some added features, please <a href="https://maphub.net/contact/support">contact us</a>.</p>
+<h2 id="maphub-enterprise-api-usage-1"><a class="header" href="#maphub-enterprise-api-usage-1">MapHub Enterprise API usage</a></h2>
+<p>The API for Enterprise users is the same as with the public website, except the <code>maphub.net</code> URL is changed to your server's URL. For example, instead of</p>
+<p><code>https://maphub.net/api/1/map/list</code></p>
+<p>please use</p>
+<p><code>https://companyname.maphub.net/api/1/map/list</code></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="list-maps"><a class="header" href="#list-maps">List maps</a></h1>
+<pre><code>https://maphub.net/api/1/map/list
+</code></pre>
+<p>List all maps available for the user.</p>
+<h2 id="arguments"><a class="header" href="#arguments">Arguments</a></h2>
+<p>This endpoint takes no arguments.</p>
+<h2 id="response"><a class="header" href="#response">Response</a></h2>
+<p>The response returns 3 keys, each containing list of maps:</p>
+<ul>
+<li><strong>owner</strong>: the user's maps</li>
+<li><strong>editor</strong>: maps where the user can edit, but is not the owner</li>
+<li><strong>viewer</strong>: maps where the user can view, but cannot edit and is not the owner</li>
+</ul>
+<p>For each map in the lists, the following properties are returned:</p>
+<ul>
+<li><strong>id</strong>: id of the map</li>
+<li><strong>url</strong>: URL of the map</li>
+<li><strong>owner</strong>: map owner's username</li>
+<li><strong>short_name</strong>: short name of the map, used in the URL</li>
+<li><strong>title</strong>: title of the map</li>
+<li><strong>visibility</strong>: visibility mode of the map. One of <code>public</code>, <code>unlisted</code>, <code>private</code>, <code>select</code>.</li>
+</ul>
+<h2 id="code-example"><a class="header" href="#code-example">Code example</a></h2>
+<h3 id="curl"><a class="header" href="#curl">curl</a></h3>
+<pre><code class="language-bash">curl https://maphub.net/api/1/map/list \
+    --header 'Authorization: Token &lt;api_key&gt;' \
+    --data-raw ''
+</code></pre>
+<h3 id="python"><a class="header" href="#python">Python</a></h3>
+<pre><code class="language-python">import requests
+
+url = 'https://maphub.net/api/1/map/list'
+
+api_key = '&lt;api_key&gt;'
+
+headers = {'Authorization': 'Token ' + api_key}
+r = requests.post(url, headers=headers)
+
+print(r.json())
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="get-map"><a class="header" href="#get-map">Get map</a></h1>
+<pre><code>https://maphub.net/api/1/map/get
+</code></pre>
+<p>Get all information about single map, including GeoJSON.</p>
+<h2 id="arguments-1"><a class="header" href="#arguments-1">Arguments</a></h2>
+<ul>
+<li><strong>map_id</strong> (required): the id of the map. To find out a map's id, please use the <a href="api/map_list.html">list maps</a> endpoint.</li>
+</ul>
+<h2 id="response-1"><a class="header" href="#response-1">Response</a></h2>
+<p>The response returns the following keys:</p>
+<ul>
+<li>
+<p><strong>id</strong>: The id of the map.</p>
+</li>
+<li>
+<p><strong>url</strong>: The full URL of the map.</p>
+</li>
+<li>
+<p><strong>owner</strong>: The map owner's username.</p>
+</li>
+<li>
+<p><strong>short_name</strong>: The short name of the map, used in the URL.</p>
+</li>
+<li>
+<p><strong>title</strong>: The title of the map.</p>
+</li>
+<li>
+<p><strong>description</strong>: The description of the map.</p>
+</li>
+<li>
+<p><strong>geojson</strong>: The GeoJSON for the map. This includes information related to groups, custom icons and images as well.</p>
+</li>
+<li>
+<p><strong>basemap</strong>: The basemap used by the map.</p>
+</li>
+<li>
+<p><strong>visibility</strong>: The visibility mode of the map. One of <code>public</code>, <code>unlisted</code>, <code>private</code>, <code>select</code>.</p>
+</li>
+<li>
+<p><strong>collaborate</strong>: Whether collaboration is enabled/disabled for the map. True/False</p>
+</li>
+<li>
+<p><strong>viewer_users</strong>: The list of specified viewers, if visibility mode is <code>select</code> .</p>
+</li>
+<li>
+<p><strong>editor_users</strong>: The list of editors, if collaboration is enabled.</p>
+</li>
+<li>
+<p><strong>created_date</strong>: The date when the map was created. ISO datetime string in UTC timezone.</p>
+</li>
+<li>
+<p><strong>modified_date</strong>: The date when the map was last updated. ISO datetime string in UTC timezone.</p>
+</li>
+<li>
+<p><strong>images</strong>: The list of image ids present in the map's GeoJSON.</p>
+</li>
+<li>
+<p><strong>markers</strong>: The list of marker ids present in the map's GeoJSON. Markers = custom icons on the web interface.</p>
+</li>
+</ul>
+<h2 id="code-example-1"><a class="header" href="#code-example-1">Code example</a></h2>
+<h3 id="curl-1"><a class="header" href="#curl-1">curl</a></h3>
+<pre><code class="language-bash">curl https://maphub.net/api/1/map/get \
+    --header 'Authorization: Token &lt;api_key&gt;' \
+    --data-raw '{&quot;map_id&quot;: 12345}'
+</code></pre>
+<h3 id="python-1"><a class="header" href="#python-1">Python</a></h3>
+<pre><code class="language-bash">import requests
+
+url = 'https://maphub.net/api/1/map/get'
+
+api_key = '&lt;api_key&gt;'
+
+args = {
+    'map_id': 12345,
+}
+
+headers = {'Authorization': 'Token ' + api_key}
+r = requests.post(url, json=args, headers=headers)
+
+print(r.json())
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="upload-map"><a class="header" href="#upload-map">Upload map</a></h1>
+<pre><code>https://maphub.net/api/1/map/upload
+</code></pre>
+<p>Upload a file and create a new map.</p>
+<p>When <code>empty</code> is used for file_type, an empty map will be created.</p>
+<p>A static image is automatically generated for the uploaded map.</p>
+<p>For this endpoint you'll need to</p>
+<ul>
+<li>send the arguments as a JSON encoded string in the <code>MapHub-API-Arg</code> header</li>
+<li>send the uploaded file as binary data in the request body (except with <code>empty</code> file_type)</li>
+</ul>
+<h2 id="arguments-2"><a class="header" href="#arguments-2">Arguments</a></h2>
+<ul>
+<li><strong>file_type</strong> (required): one of <code>empty</code>, <code>kml</code>, <code>gpx</code>, <code>geojson</code>. For &quot;.kmz&quot; files, use <code>kml</code></li>
+<li><strong>visibility</strong> (required): The visibility option of the map. One of <code>public</code>, <code>unlisted</code>, <code>private</code>.</li>
+<li><strong>title</strong> (optional): the preferred title of the map</li>
+<li><strong>description</strong> (optional): the preferred description of the map</li>
+<li><strong>short_name</strong> (optional): the short name of the map, visible in the URL. This is just a preference, the final URL will be returned in the response.</li>
+</ul>
+<h2 id="response-2"><a class="header" href="#response-2">Response</a></h2>
+<ul>
+<li><strong>id</strong>: id of the map</li>
+<li><strong>url</strong>: URL of the map</li>
+<li><strong>owner</strong>: map owner's username</li>
+<li><strong>short_name</strong>: short name of the map, used in the URL</li>
+<li><strong>title</strong>: title of the map</li>
+<li><strong>visibility</strong>: visibility mode of the map. One of <code>public</code>, <code>unlisted</code>, <code>private</code>, <code>select</code>.</li>
+</ul>
+<h2 id="limitations"><a class="header" href="#limitations">Limitations</a></h2>
+<p>Following limits apply to uploads:</p>
+<ul>
+<li>maximum file size 15 MB</li>
+<li>maximum processing time 2 minutes</li>
+</ul>
+<p>On a MapHub Enterprise server, there are no limits. If you are interested in MapHub Enterprise, <a href="https://maphub.net/contact/sales">contact us</a>.</p>
+<h2 id="code-example-2"><a class="header" href="#code-example-2">Code example</a></h2>
+<h3 id="curl-with-file"><a class="header" href="#curl-with-file">curl with file</a></h3>
+<pre><code class="language-bash">curl https://maphub.net/api/1/map/upload \
+    --header 'Authorization: Token &lt;api_key&gt;' \
+    --header 'MapHub-API-Arg: {&quot;file_type&quot;: &quot;gpx&quot;, &quot;visibility&quot;: &quot;public&quot;}' \
+    --data-binary @test.gpx
+</code></pre>
+<h3 id="curl-with-geojson-data"><a class="header" href="#curl-with-geojson-data">curl with geojson data</a></h3>
+<pre><code class="language-bash">curl https://maphub.net/api/1/map/upload \
+    --header 'Authorization: Token &lt;api_key&gt;' \
+    --header 'MapHub-API-Arg: {&quot;file_type&quot;: &quot;geojson&quot;, &quot;visibility&quot;: &quot;public&quot;}' \
+    --data-raw '{&quot;type&quot;: &quot;FeatureCollection&quot;, &quot;features&quot;: [{&quot;type&quot;: &quot;Feature&quot;, &quot;geometry&quot;: {&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [12.34, 56.78]}, &quot;properties&quot;: {&quot;title&quot;: &quot;Test point&quot;, &quot;description&quot;: &quot;Test description&quot;, &quot;group&quot;: 12345}}], &quot;groups&quot;: [{&quot;title&quot;: &quot;Test group&quot;, &quot;id&quot;: 12345}]}'
+</code></pre>
+<h3 id="python-with-file"><a class="header" href="#python-with-file">Python with file</a></h3>
+<pre><code class="language-python">import json
+import requests
+
+url = 'https://maphub.net/api/1/map/upload'
+
+api_key = '&lt;api_key&gt;'
+
+args = {
+    'file_type': 'gpx',
+    'title': 'Sample Title',
+    'short_name': 'short name',
+    'visibility': 'public',
+}
+
+headers = {
+    'Authorization': 'Token ' + api_key,
+    'MapHub-API-Arg': json.dumps(args),
+}
+
+with open('test.gpx', 'rb') as f:
+    r = requests.post(url, headers=headers, data=f)
+
+print(r.json())
+</code></pre>
+<h3 id="python-with-geojson-data"><a class="header" href="#python-with-geojson-data">Python with geojson data</a></h3>
+<pre><code class="language-python">import json
+import requests
+
+url = 'https://maphub.net/api/1/map/upload'
+
+api_key = '&lt;api_key&gt;'
+
+args = {
+    'file_type': 'geojson',
+    'title': 'Sample Title',
+    'short_name': 'short name',
+    'visibility': 'public',
+}
+
+headers = {
+    'Authorization': 'Token ' + api_key,
+    'MapHub-API-Arg': json.dumps(args),
+}
+
+geojson = {
+    &quot;type&quot;: &quot;FeatureCollection&quot;,
+    &quot;features&quot;: [
+        {
+            &quot;type&quot;: &quot;Feature&quot;,
+            &quot;geometry&quot;: {&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [12.34, 56.78]},
+            &quot;properties&quot;: {
+                &quot;title&quot;: 'Test point',
+                &quot;description&quot;: 'Test description',
+                &quot;group&quot;: 12345,
+            },
+        }
+    ],
+    &quot;groups&quot;: [{&quot;title&quot;: 'Test group', &quot;id&quot;: 12345}],
+}
+
+
+r = requests.post(url, headers=headers, data=json.dumps(geojson))
+print(r.json())
+</code></pre>
+<h3 id="python-empty-map"><a class="header" href="#python-empty-map">Python empty map</a></h3>
+<pre><code class="language-python">import json
+import requests
+
+url = 'https://maphub.net/api/1/map/upload'
+
+api_key = '&lt;api_key&gt;'
+
+args = {
+    'file_type': 'empty',
+    'title': 'Sample Title',
+    'short_name': 'short name',
+    'visibility': 'public',
+}
+
+headers = {
+    'Authorization': 'Token ' + api_key,
+    'MapHub-API-Arg': json.dumps(args),
+}
+
+
+r = requests.post(url, headers=headers)
+print(r.json())
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="update-map"><a class="header" href="#update-map">Update map</a></h1>
+<pre><code>https://maphub.net/api/1/map/update
+</code></pre>
+<p>Update a map, including the GeoJSON.</p>
+<p>For GeoJSON it means that the contents of the whole map is replaced with the new supplied <code>geojson</code> data.</p>
+<p>Only the included arguments will be updated. For example if only <code>short_name</code> is included, nothing else will be changed.</p>
+<p>When updating the GeoJSON of a map, images and markers are &quot;linked&quot;, you do not need to upload them again.</p>
+<p>Static map image is not updated automatically. If you'd like to update it, call the <a href="api/map_refresh_image.html">refresh map image</a> endpoint manually.</p>
+<p>A new map version is not saved.</p>
+<h2 id="arguments-3"><a class="header" href="#arguments-3">Arguments</a></h2>
+<ul>
+<li>
+<p><strong>map_id</strong> (required): the id of the map. To find out a map's id, please use the <a href="api/map_list.html">list maps</a> endpoint.</p>
+</li>
+<li>
+<p><strong>title</strong> (optional): The title of the map.</p>
+</li>
+<li>
+<p><strong>short_name</strong> (optional): The short name of the map, used in the URL.</p>
+</li>
+<li>
+<p><strong>description</strong> (optional): The description of the map.</p>
+</li>
+<li>
+<p><strong>geojson</strong> (optional): The GeoJSON for the map. This includes information related to groups, custom icons and images as well.</p>
+</li>
+<li>
+<p><strong>basemap</strong> (optional): The basemap used by the map.</p>
+</li>
+<li>
+<p><strong>visibility</strong> (optional): The visibility setting of the map. One of <code>public</code>, <code>unlisted</code>, <code>private</code>.</p>
+</li>
+</ul>
+<h2 id="response-3"><a class="header" href="#response-3">Response</a></h2>
+<ul>
+<li><strong>id</strong>: id of the map</li>
+<li><strong>url</strong>: URL of the map</li>
+<li><strong>owner</strong>: map owner's username</li>
+<li><strong>short_name</strong>: short name of the map, used in the URL</li>
+<li><strong>title</strong>: title of the map</li>
+<li><strong>visibility</strong>: visibility mode of the map. One of <code>public</code>, <code>unlisted</code>, <code>private</code>, <code>select</code>.</li>
+</ul>
+<h2 id="code-example-3"><a class="header" href="#code-example-3">Code example</a></h2>
+<h3 id="curl-2"><a class="header" href="#curl-2">curl</a></h3>
+<pre><code class="language-bash">curl https://maphub.net/api/1/map/update \
+    --header 'Authorization: Token &lt;api_key&gt;' \
+    --data-raw '{&quot;map_id&quot;: 12345, &quot;short_name&quot;: &quot;test_short_name_abc&quot;, &quot;title&quot;: &quot;Test Title ABC&quot;, &quot;geojson&quot;: {&quot;type&quot;: &quot;FeatureCollection&quot;, &quot;features&quot;: [{&quot;type&quot;: &quot;Feature&quot;, &quot;geometry&quot;: {&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [12.34, 56.78]}, &quot;properties&quot;: {&quot;title&quot;: &quot;Test point&quot;, &quot;description&quot;: &quot;Test description&quot;, &quot;group&quot;: 12345}}], &quot;groups&quot;: [{&quot;title&quot;: &quot;Test group&quot;, &quot;id&quot;: 12345}]}}'
+</code></pre>
+<h3 id="python-2"><a class="header" href="#python-2">Python</a></h3>
+<pre><code class="language-python">import requests
+
+url = 'https://maphub.net/api/1/map/update'
+
+api_key = '&lt;api_key&gt;'
+
+geojson = {
+    &quot;type&quot;: &quot;FeatureCollection&quot;,
+    &quot;features&quot;: [
+        {
+            &quot;type&quot;: &quot;Feature&quot;,
+            &quot;geometry&quot;: {&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [12.34, 56.78]},
+            &quot;properties&quot;: {
+                &quot;title&quot;: 'Test point',
+                &quot;description&quot;: 'Test description',
+                &quot;group&quot;: 12345,
+            },
+        },
+        {
+            &quot;type&quot;: &quot;Feature&quot;,
+            &quot;geometry&quot;: {&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [13.34, 57.78]},
+            &quot;properties&quot;: {
+                &quot;title&quot;: 'Test point 2',
+                &quot;description&quot;: 'Test description',
+                &quot;group&quot;: 12345,
+            },
+        }
+    ],
+    &quot;groups&quot;: [{&quot;title&quot;: 'Test group', &quot;id&quot;: 12345}],
+}
+
+args = {
+    'map_id': 12345,
+    'short_name': 'test_short_name_abc',
+    'title': 'Test Title ABC',
+    'geojson': geojson,
+}
+
+headers = {'Authorization': 'Token ' + api_key}
+r = requests.post(url, json=args, headers=headers)
+
+print(r.json())
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="append-map"><a class="header" href="#append-map">Append map</a></h1>
+<pre><code>https://maphub.net/api/1/map/append
+</code></pre>
+<p>Upload a file and append to an existing map.</p>
+<p>Static map image is not updated automatically. If you'd like to update it, call the <a href="api/map_refresh_image.html">refresh map image</a> endpoint manually.</p>
+<p>A new map version is not saved.</p>
+<p>For this endpoint you'll need to</p>
+<ul>
+<li>send the arguments as a JSON encoded string in the <code>MapHub-API-Arg</code> header</li>
+<li>send the uploaded file as binary data in the request body</li>
+</ul>
+<h2 id="arguments-4"><a class="header" href="#arguments-4">Arguments</a></h2>
+<ul>
+<li><strong>map_id</strong> (required): The id of the map. To find out a map's id, please use the <a href="api/map_list.html">list maps</a> endpoint.</li>
+<li><strong>file_type</strong> (required): One of <code>kml</code>, <code>gpx</code>, <code>geojson</code>. For &quot;.kmz&quot; files, use <code>kml</code></li>
+<li><strong>new_group</strong> (optional): A string, specifying the title of a new group. If specified, a new group will be created and all new items will be placed into this group.</li>
+</ul>
+<h2 id="response-4"><a class="header" href="#response-4">Response</a></h2>
+<ul>
+<li><strong>id</strong>: id of the map</li>
+<li><strong>url</strong>: URL of the map</li>
+<li><strong>owner</strong>: map owner's username</li>
+<li><strong>short_name</strong>: short name of the map, used in the URL</li>
+<li><strong>title</strong>: title of the map</li>
+<li><strong>visibility</strong>: visibility mode of the map. One of <code>public</code>, <code>unlisted</code>, <code>private</code>, <code>select</code>.</li>
+</ul>
+<h2 id="limitations-1"><a class="header" href="#limitations-1">Limitations</a></h2>
+<p>Following limits apply to uploads:</p>
+<ul>
+<li>maximum file size 15 MB</li>
+<li>maximum processing time 2 minutes</li>
+</ul>
+<p>On a MapHub Enterprise server, there are no limits. If you are interested in MapHub Enterprise, <a href="https://maphub.net/contact/sales">contact us</a>.</p>
+<h2 id="code-example-4"><a class="header" href="#code-example-4">Code example</a></h2>
+<h3 id="curl-with-file-1"><a class="header" href="#curl-with-file-1">curl with file</a></h3>
+<pre><code class="language-bash">curl https://maphub.net/api/1/map/append \
+    --header 'Authorization: Token &lt;api_key&gt;' \
+    --header 'MapHub-API-Arg: {&quot;map_id&quot;: 12345, &quot;file_type&quot;: &quot;kml&quot;}' \
+    --data-binary @test.kml
+</code></pre>
+<h3 id="curl-with-geojson-data-1"><a class="header" href="#curl-with-geojson-data-1">curl with geojson data</a></h3>
+<pre><code class="language-bash">curl https://maphub.net/api/1/map/append \
+    --header 'Authorization: Token &lt;api_key&gt;' \
+    --header 'MapHub-API-Arg: {&quot;map_id&quot;: 12345, &quot;file_type&quot;: &quot;geojson&quot;}' \
+    --data-raw '{&quot;type&quot;: &quot;FeatureCollection&quot;, &quot;features&quot;: [{&quot;type&quot;: &quot;Feature&quot;, &quot;geometry&quot;: {&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [23.45, 34.56]}, &quot;properties&quot;: {&quot;title&quot;: &quot;Test point&quot;, &quot;description&quot;: &quot;Test description&quot;, &quot;group&quot;: 12345}}], &quot;groups&quot;: [{&quot;title&quot;: &quot;Test group&quot;, &quot;id&quot;: 12345}]}'
+</code></pre>
+<h3 id="python-with-file-1"><a class="header" href="#python-with-file-1">Python with file</a></h3>
+<pre><code class="language-python">import json
+import requests
+
+url = 'https://maphub.net/api/1/map/append'
+
+api_key = '&lt;api_key&gt;'
+
+args = {
+    'map_id': 12345,
+    'file_type': 'kml',
+}
+
+headers = {
+    'Authorization': 'Token ' + api_key,
+    'MapHub-API-Arg': json.dumps(args),
+}
+
+with open('test.kml', 'rb') as f:
+    r = requests.post(url, headers=headers, data=f)
+
+print(r.json())
+</code></pre>
+<h3 id="python-with-geojson-data-1"><a class="header" href="#python-with-geojson-data-1">Python with geojson data</a></h3>
+<pre><code class="language-python">import json
+import requests
+
+url = 'https://maphub.net/api/1/map/append'
+
+api_key = '&lt;api_key&gt;'
+
+args = {
+    'map_id': 12345,
+    'file_type': 'geojson',
+}
+
+headers = {
+    'Authorization': 'Token ' + api_key,
+    'MapHub-API-Arg': json.dumps(args),
+}
+
+geojson = {
+    &quot;type&quot;: &quot;FeatureCollection&quot;,
+    &quot;features&quot;: [
+        {
+            &quot;type&quot;: &quot;Feature&quot;,
+            &quot;geometry&quot;: {&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [12.34, 56.78]},
+            &quot;properties&quot;: {
+                &quot;title&quot;: 'Test point',
+                &quot;description&quot;: 'Test description',
+                &quot;group&quot;: 2345,
+            },
+        }
+    ],
+    &quot;groups&quot;: [{&quot;title&quot;: 'Test group 234', &quot;id&quot;: 2345}],
+}
+
+
+r = requests.post(url, headers=headers, data=json.dumps(geojson))
+print(r.json())
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="refresh-static-map-image"><a class="header" href="#refresh-static-map-image">Refresh static map image</a></h1>
+<pre><code>https://maphub.net/api/1/map/refresh_image
+</code></pre>
+<p>Refresh the static image of a map.</p>
+<p>Static map images are used by embeds and the Download / Image dialog.</p>
+<p>If the map is using a premium basemap, you need to <a href="api/../basemaps/index.html">add the basemap's API key</a> first.</p>
+<p><strong>Note:</strong> This endpoint is very resource intensive, please limit it to max. 1 call every 5 minutes.</p>
+<h2 id="arguments-5"><a class="header" href="#arguments-5">Arguments</a></h2>
+<ul>
+<li><strong>map_id</strong> (required): the id of the map. To find out a map's id, please use the <a href="api/map_list.html">list maps</a> endpoint.</li>
+</ul>
+<h2 id="response-5"><a class="header" href="#response-5">Response</a></h2>
+<p>The response returns the following keys:</p>
+<ul>
+<li><strong>id</strong>: id of the map</li>
+<li><strong>url</strong>: URL of the map</li>
+<li><strong>owner</strong>: map owner's username</li>
+<li><strong>short_name</strong>: short name of the map, used in the URL</li>
+<li><strong>title</strong>: title of the map</li>
+<li><strong>visibility</strong>: visibility mode of the map. One of <code>public</code>, <code>unlisted</code>, <code>private</code>, <code>select</code>.</li>
+</ul>
+<h2 id="code-example-5"><a class="header" href="#code-example-5">Code example</a></h2>
+<h3 id="curl-3"><a class="header" href="#curl-3">curl</a></h3>
+<pre><code class="language-bash">curl https://maphub.net/api/1/map/refresh_image \
+    --header 'Authorization: Token &lt;api_key&gt;' \
+    --data-raw '{&quot;map_id&quot;: 12345}'
+</code></pre>
+<h3 id="python-3"><a class="header" href="#python-3">Python</a></h3>
+<pre><code class="language-python">import requests
+
+url = 'https://maphub.net/api/1/map/refresh_image'
+
+api_key = '&lt;api_key&gt;'
+
+args = {
+    'map_id': 12345,
+}
+
+headers = {'Authorization': 'Token ' + api_key}
+r = requests.post(url, json=args, headers=headers)
+
+print(r.json())
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="upload-image"><a class="header" href="#upload-image">Upload image</a></h1>
+<pre><code>https://maphub.net/api/1/image/upload
+</code></pre>
+<p>This endpoint uploads a JPG or PNG image, resizes it to responsive sizes and stores it on the server.</p>
+<p>The endpoint returns the <strong>image_id</strong> of the uploaded image, as well as width/height and other properties that you need to use when uploading or updating a GeoJSON of map.</p>
+<p>When updating the GeoJSON of a map, images and markers are &quot;linked&quot;, you do not need to upload them again.</p>
+<p>Images are automatically deleted once they are no longer used in any map.</p>
+<p>For this endpoint you'll need to</p>
+<ul>
+<li>send the arguments as a JSON encoded string in the <code>MapHub-API-Arg</code> header</li>
+<li>send the uploaded file as binary data in the request body</li>
+</ul>
+<h2 id="arguments-6"><a class="header" href="#arguments-6">Arguments</a></h2>
+<ul>
+<li><strong>file_type</strong> (required): one of <code>jpg</code>, <code>png</code></li>
+</ul>
+<h2 id="response-6"><a class="header" href="#response-6">Response</a></h2>
+<ul>
+<li><strong>image_id</strong>: the id of the image</li>
+<li><strong>width</strong>: the width of the image in pixels</li>
+<li><strong>height</strong>: the height of the image in pixels</li>
+<li><strong>tip_color</strong>: the color of the image popup's tip at the bottom center</li>
+<li><strong>avg_color</strong>: the average color of the image, displayed before loading</li>
+<li><strong>has_gps</strong>: if the image has GPS information, true/false</li>
+<li><strong>geometry</strong>: GeoJSON geometry if the image has GPS information. null if not.</li>
+<li><strong>date_str</strong>: image's original created date in a human readable text</li>
+<li><strong>date_iso</strong>: image's original created date in ISO datetime format</li>
+</ul>
+<h2 id="limitations-2"><a class="header" href="#limitations-2">Limitations</a></h2>
+<p>Following limits apply to uploads:</p>
+<ul>
+<li>maximum file size 15 MB</li>
+<li>maximum processing time 2 minutes</li>
+</ul>
+<p>On a MapHub Enterprise server, there are no limits. If you are interested in MapHub Enterprise, <a href="https://maphub.net/contact/sales">contact us</a>.</p>
+<h2 id="code-example-6"><a class="header" href="#code-example-6">Code example</a></h2>
+<h3 id="curl-4"><a class="header" href="#curl-4">curl</a></h3>
+<pre><code class="language-bash">curl https://maphub.net/api/1/image/upload \
+    --header 'Authorization: Token &lt;api_key&gt;' \
+    --header 'MapHub-API-Arg: {&quot;file_type&quot;: &quot;png&quot;}' \
+    --data-binary @test.png
+</code></pre>
+<h3 id="python-4"><a class="header" href="#python-4">Python</a></h3>
+<pre><code class="language-python">import json
+import requests
+
+url = 'https://maphub.net/api/1/image/upload'
+
+api_key = '&lt;api_key&gt;'
+
+args = {
+    'file_type': 'jpg',
+}
+
+headers = {
+    'Authorization': 'Token ' + api_key,
+    'MapHub-API-Arg': json.dumps(args),
+}
+
+with open('test.jpg', 'rb') as f:
+    r = requests.post(url, headers=headers, data=f)
+
+print(r.json())
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="upload-marker"><a class="header" href="#upload-marker">Upload marker</a></h1>
+<pre><code>https://maphub.net/api/1/marker/upload
+</code></pre>
+<p>Markers are <em>custom icons</em> which can be uploaded for points.</p>
+<p>This endpoint uploads a PNG image, resizes it to the right size and stores it on the server.</p>
+<p>The endpoint returns the <strong>marker_id</strong> of the uploaded marker, that you need to use when uploading or updating a GeoJSON of map.</p>
+<p>When updating the GeoJSON of a map, images and markers are &quot;linked&quot;, you do not need to upload them again.</p>
+<p>Markers are automatically deleted once they are no longer used in any map.</p>
+<p>For this endpoint you'll need to</p>
+<ul>
+<li>send the arguments as a JSON encoded string in the <code>MapHub-API-Arg</code> header</li>
+<li>send the uploaded file as binary data in the request body</li>
+</ul>
+<h2 id="arguments-7"><a class="header" href="#arguments-7">Arguments</a></h2>
+<ul>
+<li><strong>file_type</strong> (required): currently only supported: <code>png</code></li>
+</ul>
+<h2 id="response-7"><a class="header" href="#response-7">Response</a></h2>
+<ul>
+<li><strong>marker_id</strong>: the id of the marker</li>
+</ul>
+<h2 id="limitations-3"><a class="header" href="#limitations-3">Limitations</a></h2>
+<p>Following limits apply to uploads:</p>
+<ul>
+<li>maximum file size 15 MB</li>
+<li>maximum processing time 2 minutes</li>
+</ul>
+<p>On a MapHub Enterprise server, there are no limits. If you are interested in MapHub Enterprise, <a href="https://maphub.net/contact/sales">contact us</a>.</p>
+<h2 id="code-example-7"><a class="header" href="#code-example-7">Code example</a></h2>
+<h3 id="curl-5"><a class="header" href="#curl-5">curl</a></h3>
+<pre><code class="language-bash">curl https://maphub.net/api/1/marker/upload \
+    --header 'Authorization: Token &lt;api_key&gt;' \
+    --header 'MapHub-API-Arg: {&quot;file_type&quot;: &quot;png&quot;}' \
+    --data-binary @test.png
+</code></pre>
+<h3 id="python-5"><a class="header" href="#python-5">Python</a></h3>
+<pre><code class="language-python">import json
+import requests
+
+url = 'https://maphub.net/api/1/marker/upload'
+
+api_key = '&lt;api_key&gt;'
+
+args = {
+    'file_type': 'png',
+}
+
+headers = {
+    'Authorization': 'Token ' + api_key,
+    'MapHub-API-Arg': json.dumps(args),
+}
+
+with open('test.png', 'rb') as f:
+    r = requests.post(url, headers=headers, data=f)
+
+print(r.json())
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="converting-street-addresses-to-lat-lon-coordinates-using-google-sheets"><a class="header" href="#converting-street-addresses-to-lat-lon-coordinates-using-google-sheets">Converting street addresses to lat-lon coordinates using Google Sheets</a></h1>
+<p>Frequently, you would like to import an Excel CSV or XLSX file onto a <a href="https://maphub.net/">MapHub</a> map but you don't have lat-lon coordinates. The following tutorial shows you how to convert a table of street addresses into coordinates.</p>
+<p><em>Note: If for some reason you cannot use Google Docs, there is an alternative (more complicated) tutorial using Google Earth: <a href="tutorials/addresses_to_coordinates/../geocode_google_earth/index.html">link</a></em></p>
+<h2 id="sample-data-1"><a class="header" href="#sample-data-1">Sample data</a></h2>
+<p>Our sample data is the following table, containing museum names, descriptions, addresses and country.
+<img src="tutorials/addresses_to_coordinates/assets/table.png" alt="table" /></p>
+<p>You can download this file here: <a href="tutorials/addresses_to_coordinates/assets/museums.csv">museums.csv</a></p>
+<h2 id="using-google-sheets"><a class="header" href="#using-google-sheets">Using Google Sheets</a></h2>
+<p>The simplest way to geocode a table is to upload it to Google Docs / Sheets and use the addon:
+<a href="https://workspace.google.com/marketplace/app/geocode_by_awesome_table/904124517349">Geocode by Awesome Table</a></p>
+<ol>
+<li>Install the addon: <a href="https://workspace.google.com/marketplace/app/geocode_by_awesome_table/904124517349">Geocode by Awesome Table</a></li>
+<li>Reload your table and click Extensions / Geocode by Awesome Table / Start Geocoding</li>
+</ol>
+<img src="tutorials/addresses_to_coordinates/assets/menu.png" height="300"/>
+<ol start="3">
+<li>Click X and select your address column, if if's not automatically detected.</li>
+</ol>
+<img src="tutorials/addresses_to_coordinates/assets/extension-click.png" height="600"/>
+<ol start="4">
+<li>Finally click the blue <strong>Geocode!</strong> button at the end. Don't click &quot;Customize Tooltip&quot; or &quot;Open Map&quot;, we only need the lat-lon coordinates from this extension.</li>
+</ol>
+<img src="tutorials/addresses_to_coordinates/assets/button.png" height="400"/>
+<ol start="5">
+<li>After this, you can export your table in Excel XLSX format, ready to be imported to MapHub.</li>
+</ol>
+<img src="tutorials/addresses_to_coordinates/assets/export.png" height="400"/>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="maphub-api-tutorialcreate-a-map-from-a-csv-table"><a class="header" href="#maphub-api-tutorialcreate-a-map-from-a-csv-table">MapHub API tutorial<br>Create a map from a CSV table</a></h1>
+<p>This is a detailed tutorial explaining the concepts behind MapHub's API.</p>
+<p>As part of this tutorial, you'll create a Python script, which takes a table (in CSV format) and a directory of images and creates an interactive MapHub map, entirely programmatically.</p>
+<h5 id="the-table"><a class="header" href="#the-table">The table</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>title</th><th>description</th><th>url</th><th>icon_default</th><th>icon_custom</th><th>image</th><th>longitude</th><th>latitude</th></tr></thead><tbody>
+<tr><td>British Museum</td><td>The world-famous British Museum...</td><td>https://www.britishmuseum.org/</td><td>museum</td><td></td><td>british.jpg</td><td>-0.128018</td><td>51.519294</td></tr>
+<tr><td>National Gallery</td><td>The crowning glory of Trafalgar Square...</td><td></td><td>star</td><td></td><td>national.jpg</td><td>-0.128374</td><td>51.508884</td></tr>
+<tr><td>Tate Modern</td><td>Sitting grandly on the banks of the Thames is Tate Modern...</td><td>https://www.tate.org.uk/visit/tate-modern</td><td>museum</td><td></td><td>tatemodern.jpg</td><td>-0.099342</td><td>51.507429</td></tr>
+<tr><td>Victoria and Albert Museum</td><td>The V&amp;A celebrates art and design with 3,000 years'...</td><td>https://www.vam.ac.uk/</td><td></td><td>va.png</td><td>va.jpg</td><td>-0.171637</td><td>51.496884</td></tr>
+</tbody></table>
+</div>
+<h5 id="the-created-map"><a class="header" href="#the-created-map">The created Map</a></h5>
+<iframe width="768" height="450" src="https://maphub.net/embed/150169?panel=1" frameborder="0"></iframe>
+<h4 id="links"><a class="header" href="#links">Links</a></h4>
+<p>Source code for the tutorial on GitHub: <a href="https://github.com/hyperknot/maphub-api-samples/tree/main/map_from_table">repo</a> - <a href="https://github.com/hyperknot/maphub-api-samples/archive/refs/heads/main.zip">zip archive</a></p>
+<p>Table on Google Docs: <a href="https://docs.google.com/spreadsheets/d/19IRpBqh5wdLU9YcQt6ikWE079-Az6GTWPJeVUG6-nrI/edit?usp=sharing">link</a></p>
+<h4 id="preparation"><a class="header" href="#preparation">Preparation</a></h4>
+<p>You need Python 3.6+ and the <code>requests</code> library. The tutorial is the same for macOS, Windows and Linux. To install <code>requests</code>, run</p>
+<pre><code>pip3 install requests
+</code></pre>
+<p>You can download all the images and the table in CSV format on the following link: <a href="https://github.com/hyperknot/maphub-api-samples/archive/refs/heads/main.zip">zip archive</a>. The files for this tutorial are in the <code>map_from_table</code> folder.</p>
+<h4 id="create-your-api-token"><a class="header" href="#create-your-api-token">Create your API token</a></h4>
+<p>If you haven't done it already, you need to make an API token for MapHub. This is explained on the following page: <a href="tutorials/api_map_from_table/../../api/index.html">API docs</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="maphub-api-tutorialcreate-a-map-from-a-csv-table-1"><a class="header" href="#maphub-api-tutorialcreate-a-map-from-a-csv-table-1">MapHub API tutorial<br>Create a map from a CSV table</a></h1>
+<p>This is a detailed tutorial explaining the concepts behind MapHub's API.</p>
+<p>As part of this tutorial, you'll create a Python script, which takes a table (in CSV format) and a directory of images and creates an interactive MapHub map, entirely programmatically.</p>
+<h5 id="the-table-1"><a class="header" href="#the-table-1">The table</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>title</th><th>description</th><th>url</th><th>icon_default</th><th>icon_custom</th><th>image</th><th>longitude</th><th>latitude</th></tr></thead><tbody>
+<tr><td>British Museum</td><td>The world-famous British Museum...</td><td>https://www.britishmuseum.org/</td><td>museum</td><td></td><td>british.jpg</td><td>-0.128018</td><td>51.519294</td></tr>
+<tr><td>National Gallery</td><td>The crowning glory of Trafalgar Square...</td><td></td><td>star</td><td></td><td>national.jpg</td><td>-0.128374</td><td>51.508884</td></tr>
+<tr><td>Tate Modern</td><td>Sitting grandly on the banks of the Thames is Tate Modern...</td><td>https://www.tate.org.uk/visit/tate-modern</td><td>museum</td><td></td><td>tatemodern.jpg</td><td>-0.099342</td><td>51.507429</td></tr>
+<tr><td>Victoria and Albert Museum</td><td>The V&amp;A celebrates art and design with 3,000 years'...</td><td>https://www.vam.ac.uk/</td><td></td><td>va.png</td><td>va.jpg</td><td>-0.171637</td><td>51.496884</td></tr>
+</tbody></table>
+</div>
+<h5 id="the-created-map-1"><a class="header" href="#the-created-map-1">The created Map</a></h5>
+<iframe width="768" height="450" src="https://maphub.net/embed/150169?panel=1" frameborder="0"></iframe>
+<h4 id="links-1"><a class="header" href="#links-1">Links</a></h4>
+<p>Source code for the tutorial on GitHub: <a href="https://github.com/hyperknot/maphub-api-samples/tree/main/map_from_table">repo</a> - <a href="https://github.com/hyperknot/maphub-api-samples/archive/refs/heads/main.zip">zip archive</a></p>
+<p>Table on Google Docs: <a href="https://docs.google.com/spreadsheets/d/19IRpBqh5wdLU9YcQt6ikWE079-Az6GTWPJeVUG6-nrI/edit?usp=sharing">link</a></p>
+<h4 id="preparation-1"><a class="header" href="#preparation-1">Preparation</a></h4>
+<p>You need Python 3.6+ and the <code>requests</code> library. The tutorial is the same for macOS, Windows and Linux. To install <code>requests</code>, run</p>
+<pre><code>pip3 install requests
+</code></pre>
+<p>You can download all the images and the table in CSV format on the following link: <a href="https://github.com/hyperknot/maphub-api-samples/archive/refs/heads/main.zip">zip archive</a>. The files for this tutorial are in the <code>map_from_table</code> folder.</p>
+<h4 id="create-your-api-token-1"><a class="header" href="#create-your-api-token-1">Create your API token</a></h4>
+<p>If you haven't done it already, you need to make an API token for MapHub. This is explained on the following page: <a href="tutorials/api_map_from_table/../../api/index.html">API docs</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="step-2-create-a-new-map"><a class="header" href="#step-2-create-a-new-map">Step 2: Create a new map</a></h2>
+<p>To create an empty map, we'll call the <a href="tutorials/api_map_from_table/../../api/map_upload.html">Upload map</a> endpoint. The core function is the following:</p>
+<pre><code class="language-python">url = 'https://maphub.net/api/1/map/upload'
+
+args = {
+    'file_type': 'empty',
+    'title': 'London Attractions',
+    'short_name': 'london-attractions',
+    'visibility': 'public',
+}
+
+headers = {
+    'Authorization': 'Token ' + API_KEY,
+    'MapHub-API-Arg': json.dumps(args),
+}
+
+res = requests.post(url, headers=headers)
+data = res.json()
+</code></pre>
+<p>When used with <code>file_type</code>=<code>empty</code>, the Upload map endpoint creates a new map.</p>
+<p>In the script, we save the returned map's id into a JSON file (<code>map_data.json</code>). In later steps, we'll read the map id from this JSON file.</p>
+<h4 id="map_datajson-sample"><a class="header" href="#map_datajson-sample">map_data.json sample</a></h4>
+<pre><code class="language-json">{
+  &quot;id&quot;: 12345,
+  &quot;url&quot;: &quot;https://maphub.net/test/london-attractions&quot;,
+  &quot;owner&quot;: &quot;test&quot;,
+  &quot;short_name&quot;: &quot;london-attractions&quot;,
+  &quot;title&quot;: &quot;London Attractions&quot;,
+  &quot;visibility&quot;: &quot;public&quot;
+}
+</code></pre>
+<h4 id="full-script-file"><a class="header" href="#full-script-file">Full script file</a></h4>
+<p><a href="https://github.com/hyperknot/maphub-api-samples/blob/main/map_from_table/1_create_empty_map.py">link</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="step-3-upload-images-and-markers"><a class="header" href="#step-3-upload-images-and-markers">Step 3: Upload images and markers</a></h2>
+<p>MapHub treats images separate from maps. If you'd like to use an image in a map, you'll have to upload it first. Once an image is uploaded, you have to store the returned information about the image, so you can later use it in a map. In this tutorial, we store this information in a JSON file, next to each image.</p>
+<p>A note about <em>markers</em>: markers are user-uploaded, custom icons for points. You have to upload them in advance, just like images.</p>
+<p>The code for this step is in 2 parts:</p>
+<p>1. Loop through each image and marker to upload them</p>
+<pre><code class="language-python"># for each image in the images dir
+for file_path in list(IMAGES_DIR.glob('*.jpg')) + list(IMAGES_DIR.glob('*.png')):
+    # upload image
+    upload_image_marker('image', file_path)
+
+# for each marker in the markers dir
+for file_path in MARKERS_DIR.glob('*.png'):
+    # upload marker
+    upload_image_marker('marker', file_path)
+</code></pre>
+<p>2. The core of the upload function:</p>
+<pre><code class="language-python">def upload_image_marker(kind, file_path):
+    # path where we store the info JSON
+    info_json = file_path.parent / f'{file_path.stem}.json'
+
+    # if the JSON file exists, the image/marker is already uploaded, skip the upload
+    if info_json.is_file():
+        print(f'Skipping {kind} {file_path.name}')
+        return
+
+    url = f'https://maphub.net/api/1/{kind}/upload'
+
+    # use the file's extension as file_type
+    args = {
+        'file_type': file_path.suffix[1:],
+    }
+
+    headers = {
+        'Authorization': 'Token ' + API_KEY,
+        'MapHub-API-Arg': json.dumps(args),
+    }
+
+    with open(file_path, 'rb') as f:
+        # the upload request
+        res = requests.post(url, headers=headers, data=f)
+        data = res.json()
+
+    # check that upload was successful, if not print error
+    if f'{kind}_id' not in data:
+        print(data['error'])
+        return
+
+    # save the image_info dict to disk
+    with open(info_json, 'w') as f:
+        json.dump(data, f, indent=2)
+</code></pre>
+<h4 id="imagejson-sample"><a class="header" href="#imagejson-sample">image.json sample</a></h4>
+<pre><code class="language-json">{
+  &quot;image_id&quot;: &quot;nnhio1dgalldkf4x&quot;,
+  &quot;width&quot;: 640,
+  &quot;height&quot;: 360,
+  &quot;tip_color&quot;: &quot;#bfbbcb&quot;,
+  &quot;avg_color&quot;: &quot;#8a93a9&quot;,
+  &quot;has_gps&quot;: false,
+  &quot;geometry&quot;: null,
+  &quot;date_str&quot;: null,
+  &quot;date_iso&quot;: null
+}
+</code></pre>
+<h4 id="markerjson-sample"><a class="header" href="#markerjson-sample">marker.json sample</a></h4>
+<pre><code class="language-json">{
+  &quot;marker_id&quot;: &quot;eeumhz32iv0yfcfn&quot;
+}
+</code></pre>
+<h4 id="full-script-file-1"><a class="header" href="#full-script-file-1">Full script file</a></h4>
+<p><a href="https://github.com/hyperknot/maphub-api-samples/blob/main/map_from_table/2_upload_images_and_markers.py">link</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="step-4-make-the-geojson"><a class="header" href="#step-4-make-the-geojson">Step 4: Make the GeoJSON</a></h2>
+<p>In this step, we'll generate a GeoJSON from the CSV table data. Later we call the <a href="tutorials/api_map_from_table/../../api/map_update.html">Update map</a> endpoint with the generated GeoJSON.</p>
+<h4 id="geojson-on-maphub"><a class="header" href="#geojson-on-maphub">GeoJSON on MapHub</a></h4>
+<p>Every map on MapHub is stored as a GeoJSON document. All map data: points, polygons, etc. are stored in this single document. To understand the structure of a MapHub map, the best thing is to download a map you've created as GeoJSON.</p>
+<p>You can do this by opening one of your maps on MapHub.net and clicking on the &quot;Download&quot; button in the right side panel and then selecting &quot;MapHub GeoJSON&quot;.</p>
+<p>For example, the finished map of this tutorial has the following GeoJSON:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;FeatureCollection&quot;,
+  &quot;features&quot;: [
+    {
+      &quot;type&quot;: &quot;Feature&quot;,
+      &quot;id&quot;: 515312282,
+      &quot;geometry&quot;: {
+        &quot;type&quot;: &quot;Point&quot;,
+        &quot;coordinates&quot;: [-0.128018, 51.519294]
+      },
+      &quot;properties&quot;: {
+        &quot;title&quot;: &quot;British Museum&quot;,
+        &quot;description&quot;: &quot;The world-famous British Museum exhibits the works of man from prehistoric to modern times, from around the world. Highlights include the Rosetta Stone, the Parthenon sculptures and the mummies in the Ancient Egypt collection.&quot;,
+        &quot;url&quot;: &quot;https://www.britishmuseum.org/&quot;,
+        &quot;marker-symbol&quot;: &quot;museum&quot;,
+        &quot;image&quot;: {
+          &quot;id&quot;: &quot;pwasvdaus75tnn3w&quot;,
+          &quot;w&quot;: 640,
+          &quot;h&quot;: 360,
+          &quot;tip_color&quot;: &quot;#bdbbcb&quot;,
+          &quot;avg_color&quot;: &quot;#8895aa&quot;
+        }
+      }
+    },
+    {
+      &quot;type&quot;: &quot;Feature&quot;,
+      &quot;id&quot;: 521910492,
+      &quot;geometry&quot;: {
+        &quot;type&quot;: &quot;Point&quot;,
+        &quot;coordinates&quot;: [-0.128374, 51.508884]
+      },
+      &quot;properties&quot;: {
+        &quot;title&quot;: &quot;National Gallery&quot;,
+        &quot;description&quot;: &quot;The crowning glory of Trafalgar Square, London's National Gallery is a vast space filled with western European paintings from the 13th to the 19th centuries. Find works by masters such as Van Gogh, da Vinci, Botticelli, Constable, Renoir, Titian and Stubbs.&quot;,
+        &quot;marker-symbol&quot;: &quot;star&quot;,
+        &quot;image&quot;: {
+          &quot;id&quot;: &quot;pr1xhpavd1atxs5l&quot;,
+          &quot;w&quot;: 640,
+          &quot;h&quot;: 360,
+          &quot;tip_color&quot;: &quot;#8d857b&quot;,
+          &quot;avg_color&quot;: &quot;#8c8c8e&quot;
+        }
+      }
+    },
+    {
+      &quot;type&quot;: &quot;Feature&quot;,
+      &quot;id&quot;: 1233836134,
+      &quot;geometry&quot;: {
+        &quot;type&quot;: &quot;Point&quot;,
+        &quot;coordinates&quot;: [-0.099342, 51.507429]
+      },
+      &quot;properties&quot;: {
+        &quot;title&quot;: &quot;Tate Modern&quot;,
+        &quot;description&quot;: &quot;Sitting grandly on the banks of the Thames is Tate Modern, Britain's national museum of modern and contemporary art. Its unique shape is due to it previously being a power station. The gallery's restaurants offer fabulous views across the city.&quot;,
+        &quot;url&quot;: &quot;https://www.tate.org.uk/visit/tate-modern&quot;,
+        &quot;marker-symbol&quot;: &quot;museum&quot;,
+        &quot;image&quot;: {
+          &quot;id&quot;: &quot;yibgsqadfifyaste&quot;,
+          &quot;w&quot;: 640,
+          &quot;h&quot;: 360,
+          &quot;tip_color&quot;: &quot;#8493ab&quot;,
+          &quot;avg_color&quot;: &quot;#9c9ea1&quot;
+        }
+      }
+    },
+    {
+      &quot;type&quot;: &quot;Feature&quot;,
+      &quot;id&quot;: 3383498660,
+      &quot;geometry&quot;: {
+        &quot;type&quot;: &quot;Point&quot;,
+        &quot;coordinates&quot;: [-0.171637, 51.496884]
+      },
+      &quot;properties&quot;: {
+        &quot;title&quot;: &quot;Victoria and Albert Museum&quot;,
+        &quot;description&quot;: &quot;The V&amp;A celebrates art and design with 3,000 years' worth of amazing artefacts from around the world. A real treasure trove of goodies, you never know what you'll discover next: furniture, paintings, sculpture, metalwork and textiles; the list goes on.&quot;,
+        &quot;url&quot;: &quot;https://www.vam.ac.uk/&quot;,
+        &quot;marker_id&quot;: &quot;bvd5ykfilp7ekxyh&quot;,
+        &quot;image&quot;: {
+          &quot;id&quot;: &quot;ikxqpaqycbrpannw&quot;,
+          &quot;w&quot;: 640,
+          &quot;h&quot;: 360,
+          &quot;tip_color&quot;: &quot;#d1b896&quot;,
+          &quot;avg_color&quot;: &quot;#725d42&quot;
+        }
+      }
+    }
+  ],
+  &quot;groups&quot;: []
+}
+</code></pre>
+<p><em>Note: Some keys like <code>markers</code>, <code>properties</code> and <code>export</code> are not displayed here, as they are not important for this tutorial.</em></p>
+<p><em>The <code>id</code> fields are optional, you can leave them out and they'll be automatically created.</em></p>
+<h4 id="creating-the-geojson-from-the-table-data"><a class="header" href="#creating-the-geojson-from-the-table-data">Creating the GeoJSON from the table data</a></h4>
+<p>The following function is the core of this tutorial, it creates a GeoJSON from the table data we have. It also reads information from the image and marker JSONs and inserts it into the GeoJSON.</p>
+<pre><code class="language-python">def create_geojson_from_csv(csv_file):
+    assert csv_file.is_file()
+
+    features = []
+
+    with open(csv_file, newline='') as f:
+        # auto-detect the CSV dialect
+        dialect = csv.Sniffer().sniff(f.read())
+        f.seek(0)
+
+        # use DictReader which gives a dict for each row
+        reader = csv.DictReader(f, dialect=dialect)
+
+        # for each row in the CSV file
+        for row in reader:
+            row = dict(row)
+
+            lat = float(row['latitude'])
+            lon = float(row['longitude'])
+
+            # basic properties
+            properties = {
+                &quot;title&quot;: row['title'],
+                &quot;description&quot;: row['description'],
+                &quot;url&quot;: row['url'],
+            }
+
+            # if we have an icon from the default set, use it
+            if row['icon_default']:
+                properties['marker-symbol'] = row['icon_default']
+
+            # if we have a custom icon, use the uploaded marker
+            if row['icon_custom']:
+                marker_info = get_image_marker_info('marker', row['icon_custom'])
+                if marker_info:
+                    properties['marker_id'] = marker_info['marker_id']
+
+            # if we have an image, use the uploaded image
+            if row['image']:
+                image_info = get_image_marker_info('image', row['image'])
+                if image_info:
+                    properties['image'] = {
+                        'id': image_info['image_id'],
+                        'w': image_info['width'],
+                        'h': image_info['height'],
+                        'tip_color': image_info['tip_color'],
+                        'avg_color': image_info['avg_color'],
+                    }
+
+            # create the GeoJSON for the item
+            feature = {
+                &quot;type&quot;: &quot;Feature&quot;,
+                &quot;geometry&quot;: {&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [lon, lat]},
+                &quot;properties&quot;: properties,
+            }
+            features.append(feature)
+
+    geojson = {
+        &quot;type&quot;: &quot;FeatureCollection&quot;,
+        &quot;features&quot;: features,
+    }
+
+    return geojson
+</code></pre>
+<p>The core of <code>get_image_marker_info</code> helper function:</p>
+<pre><code class="language-python">def get_image_marker_info(kind, file_name):
+    assert kind in {'image', 'marker'}
+
+    if kind == 'image':
+        file_path = IMAGES_DIR / file_name
+    else:
+        file_path = MARKERS_DIR / file_name
+
+    info_json = file_path.parent / f'{file_path.stem}.json'
+
+    with open(info_json) as f:
+        return json.load(f)
+</code></pre>
+<p>In the next step, we will call the <a href="tutorials/api_map_from_table/../../api/map_update.html">Update map</a> endpoint with the generated GeoJSON.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="step-5-update-the-map"><a class="header" href="#step-5-update-the-map">Step 5: Update the map</a></h2>
+<p>Time to call the <a href="tutorials/api_map_from_table/../../api/map_update.html">Update map</a> endpoint with the generated GeoJSON from the previous step.</p>
+<pre><code class="language-python">def update_map(geojson):
+    with open(MAP_DATA_JSON) as f:
+        map_data = json.load(f)
+
+    url = 'https://maphub.net/api/1/map/update'
+
+    args = {
+        'map_id': map_data['id'],
+        'geojson': geojson,
+        'basemap': 'maphub-light',
+        'description': (
+            'Sample map for MapHub API tutorial:\n'
+            '[Create a map from a table CSV file](https://docs.maphub.net/tutorials/first_map/tutorial.html)\n\n'
+            'Texts and images are from visitlondon.com'
+        ),
+        'visibility': 'public',
+    }
+
+    headers = {'Authorization': 'Token ' + API_KEY}
+
+    res = requests.post(url, json=args, headers=headers)
+    data = res.json()
+
+    if 'id' not in data:
+        print(data['error'])
+        return
+
+    print('Map updated')
+    print(json.dumps(map_data, indent=2, ensure_ascii=False))
+</code></pre>
+<h4 id="full-script-file-2"><a class="header" href="#full-script-file-2">Full script file</a></h4>
+<p><a href="https://github.com/hyperknot/maphub-api-samples/blob/main/map_from_table/3_update_map.py">link</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="step-6-refresh-static-image"><a class="header" href="#step-6-refresh-static-image">Step 6: Refresh static image</a></h2>
+<p>Each MapHub map has a static image, which is used in the following places:</p>
+<ul>
+<li>Embed view, before the user clicks the &quot;Play button&quot;.</li>
+<li>The Download / Images links.</li>
+<li>Small thumbnails on &quot;My Maps&quot; page.</li>
+</ul>
+<p>Images can be refreshed in two ways:</p>
+<ul>
+<li>Manually, when you save the map in the web interface.</li>
+<li>When using the API, by using the <a href="tutorials/api_map_from_table/../../api/map_refresh_image.html">Refresh map image</a> endpoint.</li>
+</ul>
+<p>The following function refreshes the map's image through the API.</p>
+<pre><code class="language-python">def refresh_image():
+    with open(MAP_DATA_JSON) as f:
+        map_data = json.load(f)
+
+    url = 'https://maphub.net/api/1/map/refresh_image'
+
+    args = {
+        'map_id': map_data['id'],
+    }
+
+    headers = {'Authorization': 'Token ' + API_KEY}
+
+    res = requests.post(url, json=args, headers=headers)
+    data = res.json()
+
+    if 'id' not in data:
+        print(data['error'])
+        return
+
+    print(data['message'])
+</code></pre>
+<h4 id="full-script-file-3"><a class="header" href="#full-script-file-3">Full script file</a></h4>
+<p><a href="https://github.com/hyperknot/maphub-api-samples/blob/main/map_from_table/4_refresh_image.py">link</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="creating-your-first-map"><a class="header" href="#creating-your-first-map">Creating your first map</a></h1>
+<p>In this tutorial, we'll create a new map, search for a place and save it to your <em>My Maps</em> folder.</p>
+<ol>
+<li>
+<p>Go to <a href="https://maphub.net">MapHub.net</a></p>
+</li>
+<li>
+<p>If you haven't registered yet, in the top right corner select <em>Sign up</em>. Register with your chosen username and check your email to verify your account.</p>
+<img src="tutorials/first_map/assets/signup.jpg" width="596">
+</li>
+<li>
+<p>You can see you are logged in from the top right corner's icon. That opens your personal menu.</p>
+<img src="tutorials/first_map/assets/gravatar.jpg" width="492">
+</li>
+<li>
+<p>Click on the <em>New Map</em> button, to create a new map.</p>
+</li>
+<li>
+<p>Use the Search icon to search for an interesting place. After typing the name and press the <code>Enter</code> key to search.</p>
+<img src="tutorials/first_map/assets/search.gif" width="770">
+</li>
+<li>
+<p>Click <em>Add</em> to save the item on your map.</p>
+<img src="tutorials/first_map/assets/add.gif" width="770">
+</li>
+<li>
+<p>Click on the <em>Map</em> tab, give a <em>Title</em> to your map and save it.</p>
+<img src="tutorials/first_map/assets/save.jpg" width="479">
+</li>
+<li>
+<p>After saving the map, the map gets a unique URL on MapHub.net, you can see it in the browser's location bar. Using this link, later you will be able to share your map if you decide to set the visibility to &quot;public&quot;.</p>
+<img src="tutorials/first_map/assets/url.png" width="634">
+</li>
+<li>
+<p>You can access all your saved maps by clicking the <em>My Maps</em> button in the top bar.</p>
+<img src="tutorials/first_map/assets/mymaps.jpg" width="770">
+</li>
+</ol>
+<p><strong>Congratulations</strong>, you've created your first map!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="adding-interactive-maps-to-a-wix-website"><a class="header" href="#adding-interactive-maps-to-a-wix-website">Adding interactive maps to a Wix website</a></h1>
+<p>MapHub allows you to create interactive maps, which you can then embed on a Wix website. Here is a short tutorial for it.</p>
+<ol>
+<li>
+<p>First, create a MapHub map. If you haven't already, you can easily do it on this link: <a href="https://maphub.net/map">https://maphub.net/map</a></p>
+</li>
+<li>
+<p>Once you've saved your map, you'll see the the &quot;Embed on Website&quot; button on the right side.</p>
+<img src="tutorials/wix_embed/assets/embed.png" alt="embed" style="zoom:50%;" />
+</li>
+<li>
+<p>On Wix.com, click &quot;Add Elements&quot;.</p>
+<img src="tutorials/wix_embed/assets/addelements.png" alt="addelements" style="zoom:50%;" />
+</li>
+<li>
+<p>Select Embed code / Popular Embeds / Embed HTML.</p>
+<img src="tutorials/wix_embed/assets/wix-embed.png" alt="wix-embed" style="zoom:50%;" />
+</li>
+<li>
+<p>Select code, and paste the &quot;iframe&quot; code which was generated in MapHub.</p>
+<img src="tutorials/wix_embed/assets/wix-iframe.png" alt="wix-iframe" style="zoom:50%;" />
+</li>
+<li>
+<p>For the best results on Wix.com, edit the width and height values and change them to &quot;100%&quot;. This allows the Wix editor to set the sizes correctly.</p>
+<img src="tutorials/wix_embed/assets/100percent.png" alt="100percent" style="zoom:50%;" />
+</li>
+<li>
+<p>You are done, you have embedded an interactive MapHub map into Wix.com:
+<img src="tutorials/wix_embed/assets/final.png" alt="final website" style="zoom:50%;" /></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="drawing-tools-in-maphub"><a class="header" href="#drawing-tools-in-maphub">Drawing tools in MapHub</a></h1>
+<p>This tutorial will introduce you to the different drawing tools in MapHub.</p>
+<p>It starts where &quot;Creating your first map&quot; tutorial finished. If you haven't done it yet, we recommend you to do it first.</p>
+<ol>
+<li>
+<p>Click <em>My Maps</em> and load the map you've saved previously, by clicking on it.</p>
+<img src="tutorials/drawing_tools/assets/mymaps.jpg" width="770">
+</li>
+<li>
+<p>Once the map loads, you can see the drawing tools on the left side of the map.</p>
+<img src="tutorials/drawing_tools/assets/drawingtools.png" width="55">
+</li>
+</ol>
+<h3 id="point-tool"><a class="header" href="#point-tool">Point tool</a></h3>
+<p>The point tool allows you to create new points (or markers).</p>
+<img src="tutorials/drawing_tools/assets/point.png" width="158">
+<ol>
+<li>
+<p>Select the point tool and click somewhere on the map. Once added, these points are shown with a blue icon by default.</p>
+<img src="tutorials/drawing_tools/assets/marker-default.jpg" width="380">
+</li>
+<li>
+<p>You'll also see a popup appearing.</p>
+<img src="tutorials/drawing_tools/assets/popup.jpg" width="369">
+</li>
+<li>
+<p>Have a look at the right side <em>Item</em> menu. Using the <em>Title</em> and <em>Description</em> fields, you can customize the display of the popup. Scroll down, and you can customize the <em>Color</em> and <em>Icon</em> as well.</p>
+<img src="tutorials/drawing_tools/assets/description-color-icon.gif" width="761">
+</li>
+<li>
+<p>You can also upload a custom PNG file for the icon. Make sure to use one with a transparent background.</p>
+<img src="tutorials/drawing_tools/assets/custom-icon.gif" width="685">
+</li>
+<li>
+<p>If you would like to move a point, click the move icon.</p>
+<img src="tutorials/drawing_tools/assets/modify-button.png" width="284">
+</li>
+<li>
+<p>If you would like to delete a point, click the delete icon or press the <code>Del</code> / <code>Backspace</code> key.</p>
+<img src="tutorials/drawing_tools/assets/delete-button.png" width="284">
+</li>
+</ol>
+<h3 id="line-tool"><a class="header" href="#line-tool">Line tool</a></h3>
+<p>The line tool allows you to create simple or complex lines.</p>
+<img src="tutorials/drawing_tools/assets/line.png" width="158">
+<ol>
+<li>
+<p>Select the line tool and click somewhere on the map to start drawing a new line. The map goes in a &quot;line drawing&quot; mode.</p>
+<img src="tutorials/drawing_tools/assets/line-drawing.gif" width="678">
+</li>
+<li>
+<p>You can finish drawing by clicking on the last point, or by pressing the <code>Enter</code> or <code>Esc</code> key.</p>
+<img src="tutorials/drawing_tools/assets/line-drawing-finish.gif" width="520">
+</li>
+<li>
+<p>In the right-side panel, you can change the color of the line and see the <em>Length</em>, calculated across all segments.</p>
+<img src="tutorials/drawing_tools/assets/line-length.png" width="309">
+</li>
+</ol>
+<h4 id="editing-existing-lines"><a class="header" href="#editing-existing-lines">Editing existing lines</a></h4>
+<p>By clicking on an existing line, you can go to <em>Edit mode</em> by clicking on the following button:</p>
+<img src="tutorials/drawing_tools/assets/modify-button.png" width="284">
+<ol>
+<li>
+<p>Editing existing points of a line can be done by dragging the white circles.</p>
+<img src="tutorials/drawing_tools/assets/modify-line-existing-points.gif" width="444">
+</li>
+<li>
+<p>Adding new points between existing points can be done by clicking on the smaller blue circles and dragging them.</p>
+<img src="tutorials/drawing_tools/assets/modify-line-create-mid-point.gif" width="548">
+</li>
+<li>
+<p>You can add points at the ends of the line, by <em>Ctrl / Cmd</em> clicking on the endpoints. In this mode, you can finish editing by clicking on the last point twice, or by pressing the <code>Enter</code> or <code>Esc</code> key.</p>
+<img src="tutorials/drawing_tools/assets/modify-line-create-end-points.gif" width="464">
+</li>
+<li>
+<p>To delete points within a line, you need to click on a white circle (it displays as a green outline), and then press the <code>Del</code> / <code>Backspace</code> key, or the <em>Delete</em> icon in the right-side panel.</p>
+<img src="tutorials/drawing_tools/assets/modify-line-delete-point.gif" width="762">
+</li>
+</ol>
+<p>You can exit the line editing mode by clicking on the <em>Edit mode</em> button, or pressing the <code>Enter</code> or <code>Esc</code> key.</p>
+<img src="tutorials/drawing_tools/assets/modify-line-edit-mode.png" width="284">
+<div style="break-before: page; page-break-before: always;"></div><h1 id="converting-street-addresses-to-lat-lon-coordinates-using-google-earth"><a class="header" href="#converting-street-addresses-to-lat-lon-coordinates-using-google-earth">Converting street addresses to lat-lon coordinates using Google Earth</a></h1>
+<ol>
+<li>
+<p>First step, you'll need the Desktop version of Google Earth Pro app. Go to this <a href="https://www.google.com/earth/about/versions/#earth-pro">link</a> and click &quot;<a href="https://www.google.com/earth/about/versions/#earth-pro">Download Earth Pro on desktop</a>&quot;. Download and install it.</p>
+<p><img src="tutorials/geocode_google_earth/assets/google1.png" alt="google1" /></p>
+<p><img src="tutorials/geocode_google_earth/assets/google2.png" alt="google2" /></p>
+</li>
+<li>
+<p>If your table is in XLSX format, you need to save it as CSV first.</p>
+</li>
+<li>
+<p>Open Google Earth Pro and select File / Import. Select your CSV file.</p>
+</li>
+<li>
+<p>On the first screen, the defaults are usually OK. If not, adjust until the columns are nicely separated. Click Next.</p>
+</li>
+<li>
+<p>On the next screen, select &quot;This dataset does not contain lat/lon information...&quot;. Click Next.</p>
+<p><img src="tutorials/geocode_google_earth/assets/import.png" alt="import" /></p>
+</li>
+<li>
+<p>On the next screen, choose which option describes your address format better.</p>
+<p><img src="tutorials/geocode_google_earth/assets/import2.png" alt="import2" /></p>
+</li>
+<li>
+<p>On the last screen, you can keep the defaults and click Finish.</p>
+</li>
+<li>
+<p>If there is any mistake, it'll ask you to fix the results.</p>
+</li>
+<li>
+<p>When asked about style template, click No:</p>
+</li>
+</ol>
+<img src="tutorials/geocode_google_earth/assets/style.png" alt="style" width="411" />
+<ol>
+<li>Right click on the csv file in Temporary Places and select Save Place As. You can use the default KMZ option.</li>
+</ol>
+<img src="tutorials/geocode_google_earth/assets/save_place_as.png" alt="save_place_as" width="344"/>
+<ol>
+<li>
+<p>Go to <a href="https://maphub.net/">MapHub</a> and import the KMZ file into a map.</p>
+</li>
+<li>
+<p>The addresses will now display correctly, with coordinates.</p>
+<p><img src="tutorials/geocode_google_earth/assets/map.png" alt="map" /></p>
+</li>
+</ol>
+<p>Congratulations for converting your addresses to coordinates.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="xlsx--csv-import-2"><a class="header" href="#xlsx--csv-import-2">XLSX / CSV import</a></h1>
+<p><a href="https://maphub.net/">MapHub</a> supports importing data from CSV or XLSX files. We recommend using the <strong>XLSX</strong> format.</p>
+<p>When uploading a table file, MapHub tries to guess the right file format. The only requirements is to have the following 2 columns present:</p>
+<ul>
+<li><strong>lat</strong> or <strong>latitude</strong>, as a number. For example New York is <code>40.71</code></li>
+<li><strong>lon</strong>, <strong>long</strong>, <strong>lng</strong> or <strong>longitude</strong>, as a number. For example New York is <code>-74.00</code></li>
+</ul>
+<p>If your data does not have these columns, follow the tutorial which explains how to convert street addresses to lat-lon coordinate pairs:</p>
+<p><a href="import_export/csv_import//tutorials/addresses_to_coordinates/index.html">Converting addresses to lat-lon coordinates</a></p>
+<h4 id="other-columns-1"><a class="header" href="#other-columns-1">Other columns</a></h4>
+<p>(all of these are optional)</p>
+<ul>
+<li>
+<p><strong>title</strong> or <strong>name</strong> - the title of the item</p>
+</li>
+<li>
+<p><strong>description</strong> or <strong>desc</strong> - the description of the item, Markdown supported</p>
+</li>
+<li>
+<p><strong>group</strong> - the name of the item's group</p>
+</li>
+<li>
+<p><strong>url</strong> - a link URL</p>
+</li>
+<li>
+<p><strong>color</strong> - hex code for the item's color, for example <code>#CC1B15</code></p>
+</li>
+<li>
+<p><strong>visible</strong> - true/false - if the item is visible (true) or hidden (false). Also accepts 1/0.</p>
+</li>
+<li>
+<p><strong>media_url</strong> - a media URL, for example a YouTube video.</p>
+</li>
+<li>
+<p><strong>icon</strong> - a MapHub icon id</p>
+</li>
+<li>
+<p><strong>maphub_image_url</strong> - allows you to set an image for an item. You have to previously upload that image onto a map and export that map as a CSV or XLSX file to get these values.</p>
+</li>
+</ul>
+<h4 id="sample-data-2"><a class="header" href="#sample-data-2">Sample data</a></h4>
+<p>On the following map, you can click Download / Excel XLSX or CSV to get a sample file:</p>
+<p><strong><a href="https://maphub.net/hyperknot/xlsx-csv-sample">XLSX / CSV sample</a></strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
